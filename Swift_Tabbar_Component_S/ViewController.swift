@@ -7,6 +7,35 @@
 
 import UIKit
 
+var role = 0
+
+class OpeningViewController: UIViewController {
+    
+    @IBOutlet weak var btn: UIButton!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.title = "Opening"
+        
+    }
+    
+    @IBAction func btnAction(_ sender: Any) {
+        role = 1
+        performSegue(withIdentifier: "toDashBoard", sender: nil)
+    }
+    
+    @IBAction func btn2Action(_ sender: Any) {
+        role = 2
+        performSegue(withIdentifier: "toDashBoard", sender: nil)
+    }
+    
+    @IBAction func btn3Action(_ sender: Any) {
+        role = 3
+        performSegue(withIdentifier: "toDashBoard", sender: nil)
+    }
+}
+
 class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,11 +70,32 @@ class DashboardTabBarController: UITabBarController, UITabBarControllerDelegate 
         
     }
     func setupVCs() {
-        viewControllers = [
-            createNavController(for: LoginViewController(), title: NSLocalizedString("Search", comment: ""), image: UIImage(systemName: "magnifyingglass")!),
-            createNavController(for: MainViewController(), title: NSLocalizedString("Home", comment: ""), image: UIImage(systemName: "house")!),
-            createNavController(for: ProfileViewController(), title: NSLocalizedString("Profile", comment: ""), image: UIImage(systemName: "person")!)
-        ]
+        switch role {
+        case 1:
+            viewControllers = [
+                createNavController(for: LoginViewController(), title: NSLocalizedString("Search", comment: ""), image: UIImage(systemName: "magnifyingglass")!),
+                createNavController(for: LoginViewController(), title: NSLocalizedString("Search", comment: ""), image: UIImage(systemName: "magnifyingglass")!),
+                createNavController(for: LoginViewController(), title: NSLocalizedString("Search", comment: ""), image: UIImage(systemName: "magnifyingglass")!)
+            ]
+            break
+        case 2:
+            viewControllers = [
+                createNavController(for: ProfileViewController(), title: NSLocalizedString("Profile", comment: ""), image: UIImage(systemName: "person")!)
+            ]
+            break
+        case 3:
+            viewControllers = [
+                createNavController(for: LoginViewController(), title: NSLocalizedString("Search", comment: ""), image: UIImage(systemName: "magnifyingglass")!),
+                createNavController(for: MainViewController(), title: NSLocalizedString("Home", comment: ""), image: UIImage(systemName: "house")!),
+                createNavController(for: ProfileViewController(), title: NSLocalizedString("Profile", comment: ""), image: UIImage(systemName: "person")!),
+                createNavController(for: MainViewController(), title: NSLocalizedString("Home", comment: ""), image: UIImage(systemName: "house")!),
+                createNavController(for: ProfileViewController(), title: NSLocalizedString("Profile", comment: ""), image: UIImage(systemName: "person")!)
+            ]
+            break
+        default:
+            break
+        }
+        
     }
     
     fileprivate func createNavController(for rootViewController: UIViewController,

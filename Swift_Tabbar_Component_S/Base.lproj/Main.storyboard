@@ -8,23 +8,95 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Dashboard Tab Bar Controller-->
+        <!--Opening View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="DashboardTabBarController" customModule="Swift_Tabbar_Component_S" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="OpeningViewController" customModule="Swift_Tabbar_Component_S" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wOp-4f-IVh">
+                                <rect key="frame" x="87" y="123" width="200" height="100"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="3yd-cr-HYG"/>
+                                    <constraint firstAttribute="height" constant="100" id="jrD-jf-sgZ"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="btnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aUS-Gw-SOm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2oh-r9-eEx">
+                                <rect key="frame" x="87" y="277" width="200" height="100"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="Y8n-3S-5po"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="btn2Action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vDm-iE-xJL"/>
+                                    <action selector="btnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vId-NN-iFN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sri-9v-WNS">
+                                <rect key="frame" x="87" y="443" width="200" height="100"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="AZ6-P4-g8V"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="btn3Action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="y34-Bj-tiE"/>
+                                    <action selector="btnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fsj-rU-d8v"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="2oh-r9-eEx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="2zS-su-2LR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2oh-r9-eEx" secondAttribute="trailing" constant="88" id="9Ra-nb-IHl"/>
+                            <constraint firstItem="wOp-4f-IVh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="123" id="Dbv-xj-QqS"/>
+                            <constraint firstItem="Sri-9v-WNS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="SNq-wQ-lFK"/>
+                            <constraint firstItem="wOp-4f-IVh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="WPC-q8-rJa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wOp-4f-IVh" secondAttribute="trailing" constant="88" id="a9k-0p-ONX"/>
+                            <constraint firstItem="2oh-r9-eEx" firstAttribute="top" secondItem="wOp-4f-IVh" secondAttribute="bottom" constant="54" id="b0w-JP-Cxk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Sri-9v-WNS" secondAttribute="trailing" constant="88" id="n6d-nO-x9I"/>
+                            <constraint firstItem="Sri-9v-WNS" firstAttribute="top" secondItem="2oh-r9-eEx" secondAttribute="bottom" constant="66" id="s6e-0m-jut"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="btn" destination="wOp-4f-IVh" id="lmE-kC-wrm"/>
+                        <segue destination="vD0-XP-jnz" kind="show" identifier="toDashBoard" id="WeA-3u-2mY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="29" y="92"/>
+            <point key="canvasLocation" x="28" y="91.304347826086968"/>
+        </scene>
+        <!--Dashboard Tab Bar Controller-->
+        <scene sceneID="vPx-F8-zJG">
+            <objects>
+                <viewController id="vD0-XP-jnz" customClass="DashboardTabBarController" customModule="Swift_Tabbar_Component_S" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hiL-SV-Fjw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="XIG-7e-SuV"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="eXg-i1-wEm"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ScA-38-Vgc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1250" y="91"/>
         </scene>
     </scenes>
     <resources>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
