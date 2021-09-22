@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F80AA90C26FB105E00B0DA34 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80AA90B26FB105E00B0DA34 /* Constants.swift */; };
 		F899181526F8C99C0060978B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F899181426F8C99C0060978B /* AppDelegate.swift */; };
 		F899181726F8C99C0060978B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F899181626F8C99C0060978B /* SceneDelegate.swift */; };
 		F899181926F8C99C0060978B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F899181826F8C99C0060978B /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F80AA90B26FB105E00B0DA34 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F899181126F8C99C0060978B /* Swift_Tabbar_Component_S.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swift_Tabbar_Component_S.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F899181426F8C99C0060978B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F899181626F8C99C0060978B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +39,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F80AA90A26FB104F00B0DA34 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				F80AA90B26FB105E00B0DA34 /* Constants.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		F899180826F8C99C0060978B = {
 			isa = PBXGroup;
 			children = (
@@ -59,6 +69,7 @@
 				F899181426F8C99C0060978B /* AppDelegate.swift */,
 				F899181626F8C99C0060978B /* SceneDelegate.swift */,
 				F899181826F8C99C0060978B /* ViewController.swift */,
+				F80AA90A26FB104F00B0DA34 /* Helper */,
 				F899181A26F8C99C0060978B /* Main.storyboard */,
 				F899181D26F8C99E0060978B /* Assets.xcassets */,
 				F899181F26F8C99E0060978B /* LaunchScreen.storyboard */,
@@ -138,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F899181926F8C99C0060978B /* ViewController.swift in Sources */,
+				F80AA90C26FB105E00B0DA34 /* Constants.swift in Sources */,
 				F899181526F8C99C0060978B /* AppDelegate.swift in Sources */,
 				F899181726F8C99C0060978B /* SceneDelegate.swift in Sources */,
 			);

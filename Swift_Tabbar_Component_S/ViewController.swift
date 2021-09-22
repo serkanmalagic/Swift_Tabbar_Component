@@ -15,24 +15,18 @@ class OpeningViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.title = "Opening"
         
     }
     
-    @IBAction func btnAction(_ sender: Any) {
-        role = 1
-        performSegue(withIdentifier: "toDashBoard", sender: nil)
-    }
+    @IBAction func btnAction(_ sender: Any)  {pushSegue(roles: 1)}
+    @IBAction func btn2Action(_ sender: Any) {pushSegue(roles: 2)}
+    @IBAction func btn3Action(_ sender: Any) {pushSegue(roles: 3)}
     
-    @IBAction func btn2Action(_ sender: Any) {
-        role = 2
-        performSegue(withIdentifier: "toDashBoard", sender: nil)
-    }
-    
-    @IBAction func btn3Action(_ sender: Any) {
-        role = 3
-        performSegue(withIdentifier: "toDashBoard", sender: nil)
+    func pushSegue(roles : Int){
+        role = roles
+        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "DashboardTabBarSB") as! DashboardTabBarController
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
 }
 
@@ -44,14 +38,17 @@ class MainViewController: UIViewController {
     }
 }
 
-class ProfileViewController: UIViewController {override func viewDidLoad() {super.viewDidLoad()
+class ProfileViewController: UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
         view.backgroundColor = .brown
         self.title = "Profile"
     }
 }
 
-class LoginViewController: UIViewController {override func viewDidLoad() {
-    super.viewDidLoad()
+class LoginViewController: UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
         view.backgroundColor = .darkGray
         self.title = "Login"
     }
@@ -72,25 +69,13 @@ class DashboardTabBarController: UITabBarController, UITabBarControllerDelegate 
     func setupVCs() {
         switch role {
         case 1:
-            viewControllers = [
-                createNavController(for: LoginViewController(), title: NSLocalizedString("Search", comment: ""), image: UIImage(systemName: "magnifyingglass")!),
-                createNavController(for: LoginViewController(), title: NSLocalizedString("Search", comment: ""), image: UIImage(systemName: "magnifyingglass")!),
-                createNavController(for: LoginViewController(), title: NSLocalizedString("Search", comment: ""), image: UIImage(systemName: "magnifyingglass")!)
-            ]
+            viewControllers = Constants.user_login
             break
         case 2:
-            viewControllers = [
-                createNavController(for: ProfileViewController(), title: NSLocalizedString("Profile", comment: ""), image: UIImage(systemName: "person")!)
-            ]
+            viewControllers = Constants.user_guest
             break
         case 3:
-            viewControllers = [
-                createNavController(for: LoginViewController(), title: NSLocalizedString("Search", comment: ""), image: UIImage(systemName: "magnifyingglass")!),
-                createNavController(for: MainViewController(), title: NSLocalizedString("Home", comment: ""), image: UIImage(systemName: "house")!),
-                createNavController(for: ProfileViewController(), title: NSLocalizedString("Profile", comment: ""), image: UIImage(systemName: "person")!),
-                createNavController(for: MainViewController(), title: NSLocalizedString("Home", comment: ""), image: UIImage(systemName: "house")!),
-                createNavController(for: ProfileViewController(), title: NSLocalizedString("Profile", comment: ""), image: UIImage(systemName: "person")!)
-            ]
+            viewControllers = Constants.user_admin
             break
         default:
             break
@@ -98,20 +83,8 @@ class DashboardTabBarController: UITabBarController, UITabBarControllerDelegate 
         
     }
     
-    fileprivate func createNavController(for rootViewController: UIViewController,
-                                         title: String,
-                                         image: UIImage) -> UIViewController {
-        let navController = UINavigationController(rootViewController: rootViewController)
-        navController.tabBarItem.title = title
-        navController.tabBarItem.image = image
-        navController.navigationBar.prefersLargeTitles = true
-        rootViewController.navigationItem.title = title
-        return navController
-    }
-    
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         print(viewController.title)
     }
-    
     
 }
